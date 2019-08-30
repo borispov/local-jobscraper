@@ -5,12 +5,14 @@
   "main": "scraper.js",
   "dependencies": {
     "easy-pdf-merge": "^0.2.2",
+    "nodemailer": "^6.3.0",
     "puppeteer": "^1.19.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node scraper.js",
-    "merge": "node merge.js"
+    "start": "node scraper.js last",
+    "start:last": "node scraper.js last mail",
+    "start:mail": "node scraper.js 10 mail"
   },
   "author": "Boris Povolotsky <boristofu@gmail.com>",
   "license": "ISC"
