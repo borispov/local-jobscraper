@@ -4,8 +4,20 @@ const fs = require('fs')
 const path = require('path');
 const dict = fs.readFileSync('./dict.txt', 'utf-8').split('\n').slice(0, -1);
 const Ashkelon = '%D7%90%D7%A9%D7%A7%D7%9C%D7%95%D7%9F'
-const searchField = Ashkelon
-const URL = `https://www.shatil.org.il/modaot/joboffer_lastweek?field_activity_zones_tid%5B%5D=87&field_main_roles_job_tid%5B%5D=98&combine=${searchField}`;
+const searchField = ''
+
+const getQuery = () => {
+  const args = process.argv.slice(2)
+  if (!args) return ''
+  return args
+    .some(el => el.includes('query=')) ? 
+    args
+      .filter(el=>el.includes('query='))[0]
+      .split('=')[1] 
+    : searchField
+}
+
+const URL = `https://www.shatil.org.il/modaot/joboffer_lastweek?field_activity_zones_tid%5B%5D=87&field_main_roles_job_tid%5B%5D=98&combine=${getQuery()}`;
 
 const getDateArg = () => {
   const oneday = 1000 * 60 * 60 * 24

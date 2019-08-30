@@ -21,7 +21,7 @@ module.exports = async (fileToSend = fi) => {
     from: sender.from,
     to: to,
     subject: 'משרות שתיל האחרונות שביקשת',
-    text: 'רשימת משרות עבורך יקירתי.. אל יאוש! :-)'
+    text: 'רשימת משרות עבורך יקירתי.. אל יאוש! :-)',
     attachments: {
       filename: fileToSend,
       content
